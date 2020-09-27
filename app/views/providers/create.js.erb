@@ -1,0 +1,17 @@
+<% provider = @response[:provider] %>
+
+<% if provider.present? %>
+  $('#<%= provider.number %>').remove();
+
+  $('#provider_body').prepend("<tr id=<%= provider.number %> ><td><%= provider.number %></td><td><%= provider.enumeration_type %></td><td><%= provider.full_name %></td><td><%= provider.created_epoch %></td><td><%= provider.last_updated_epoch %></td><td><%= provider.basic['gender'] %></td><td><%= provider.basic['status'] %></td><td><%= provider.basic['credential'] %></td><td><%= provider.basic['sole_proprietor'] %></td><td><%= provider.basic['enumeration_date'] %></td><td><%= provider.basic['last_updated'] %></td><td><a href=<%= provider_path(provider) %> class='btn btn-info'>show</a></td></tr");
+
+  $('#provider_number').val('')
+
+  toastr.success('Provider details has been fectched successfully')
+<% end %>
+
+<% status = @response[:status] %>
+
+<% if status != 200 %>
+  toastr.error('Please enter a valid 10 digit NPI number')
+<% end %>

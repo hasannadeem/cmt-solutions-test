@@ -1,0 +1,24 @@
+<div class='container'>
+  <h1 class='bg-success text-center'>Top Searched NPI With Count</h1>
+
+  <table class='table'>
+    <thead class='thead-dark'>
+      <tr>
+        <th scope='col'>NPI Number</th>
+        <th scope='col'>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @providers.each do |provider| %>
+        <tr>
+          <td><%=provider.number %></th>
+          <td><%= provider.search_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= will_paginate @providers, renderer: BootstrapPagination::Rails %>
+
+  <%= link_to 'back', root_url, class: 'pull-right' %>
+</div>

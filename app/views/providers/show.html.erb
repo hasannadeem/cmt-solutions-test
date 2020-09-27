@@ -1,0 +1,265 @@
+<div class='container'>
+  <h1 class='bg-success text-center'>Provider Details having NPI number <%= @provider.number %></h1>
+
+  <div class='col-md-4'>
+    <dl>
+      <dt>Enumeration Type</dt>
+      <dd><%= @provider.enumeration_type %></dd>
+      <dt>Created Epoch</dt>
+      <dd><%= @provider.created_epoch %></dd>
+      <dt>Last Updated Epoch</dt>
+      <dd><%= @provider.last_updated_epoch %></dd>
+    </dl>
+  </div>
+
+  <div class='col-md-4'>
+    <dl>
+      <dt>Name</dt>
+      <dd><%= @provider.full_name %></dd>
+      <dt>Gender</dt>
+      <dd><%= @provider.basic['gender'] %></dd>
+      <dt>Status</dt>
+      <dd><%= @provider.basic['status'] %></dd>
+    </dl>
+  </div>
+
+  <div class='col-md-4'>
+    <dl>
+      <dt>Credential</dt>
+      <dd><%= @provider.basic['credential'] %></dd>
+      <dt>Sole Proprietor</dt>
+      <dd><%= @provider.basic['sole_proprietor'] %></dd>
+      <dt>Enumeration Date</dt>
+      <dd><%= @provider.basic['enumeration_date'] %></dd>
+    </dl>
+  </div>
+
+  <div class='row'>
+    <h3 class='text-center'>Addresses</h3>
+  </div>
+
+  <div class='table-responsive'>
+    <table class='table'>
+      <thead class='thead-dark'>
+        <tr>
+          <th scope='col'>Address_1</th>
+          <th scope='col'>Address_2</th>
+          <th scope='col'>Address Purpose</th>
+          <th scope='col'>Address Type</th>
+          <th scope='col'>city</th>
+          <th scope='col'>Country Code</th>
+          <th scope='col'>Country Name</th>
+          <th scope='col'>Postal Code</th>
+          <th scope='col'>State</th>
+          <th scope='col'>Telephone Number</th>
+          <th scope='col'>Fax Number</th>
+          <th scope='col'>Update Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @provider.addresses.each do |address| %>
+          <tr>
+            <td><%= address.address_1 %></td>
+            <td><%= address.address_2 %></td>
+            <td><%= address.address_purpose %></td>
+            <td><%= address.address_type %></td>
+            <td><%= address.city %></td>
+            <td><%= address.country_code %></td>
+            <td><%= address.country_name %></td>
+            <td><%= address.postal_code %></td>
+            <td><%= address.state %></td>
+            <td><%= address.telephone_number %></td>
+            <td><%= address.fax_number %></td>
+            <td><%= address.update_date %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class='row'>
+    <h3 class='text-center'>Practice Locations</h3>
+  </div>
+
+  <div class='table-responsive'>
+    <table class='table'>
+      <thead class='thead-dark'>
+        <tr>
+          <th scope='col'>Address_1</th>
+          <th scope='col'>Address_2</th>
+          <th scope='col'>Address Purpose</th>
+          <th scope='col'>Address Type</th>
+          <th scope='col'>city</th>
+          <th scope='col'>Country Code</th>
+          <th scope='col'>Country Name</th>
+          <th scope='col'>Postal Code</th>
+          <th scope='col'>State</th>
+          <th scope='col'>Telephone Number</th>
+          <th scope='col'>Fax Number</th>
+          <th scope='col'>Update Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @provider.practice_locations.each do |address| %>
+          <tr>
+            <td><%= address.address_1 %></td>
+            <td><%= address.address_2 %></td>
+            <td><%= address.address_purpose %></td>
+            <td><%= address.address_type %></td>
+            <td><%= address.city %></td>
+            <td><%= address.country_code %></td>
+            <td><%= address.country_name %></td>
+            <td><%= address.postal_code %></td>
+            <td><%= address.state %></td>
+            <td><%= address.telephone_number %></td>
+            <td><%= address.fax_number %></td>
+            <td><%= address.update_date %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class='row'>
+    <h3 class='text-center'>Other Names</h3>
+  </div>
+
+  <div class='table-responsive'>
+    <table class='table'>
+      <thead class='thead-dark'>
+        <tr>
+          <th scope='col'>Code</th>
+          <th scope='col'>Credential</th>
+          <th scope='col'>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @provider.other_names.each do |other_name| %>
+          <tr>
+            <td><%= other_name.code %></td>
+            <td><%= other_name.credential %></td>
+            <td><%= other_name.full_name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class='row'>
+    <h3 class='text-center'>Taxonomies</h3>
+  </div>
+
+  <div class='table-responsive'>
+    <table class='table'>
+      <thead class='thead-dark'>
+        <tr>
+          <th scope='col'>Code</th>
+          <th scope='col'>Description</th>
+          <th scope='col'>License</th>
+          <th scope='col'>State</th>
+          <th scope='col'>Taxonomy Group</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @provider.taxonomies.each do |taxonomy| %>
+          <tr>
+            <td><%= taxonomy.code %></td>
+            <td><%= taxonomy.desc %></td>
+            <td><%= taxonomy.license %></td>
+            <td><%= taxonomy.state %></td>
+            <td><%= taxonomy.taxonomy_group %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class='row'>
+    <h3 class='text-center'>Identifiers</h3>
+  </div>
+
+  <div class='table-responsive'>
+    <table class='table'>
+      <thead class='thead-dark'>
+        <tr>
+          <th scope='col'>Code</th>
+          <th scope='col'>Description</th>
+          <th scope='col'>Identifier</th>
+          <th scope='col'>State</th>
+          <th scope='col'>Issuer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @provider.identifiers.each do |identifier| %>
+          <tr>
+            <td><%= identifier.code %></td>
+            <td><%= identifier.desc %></td>
+            <td><%= identifier.identifier %></td>
+            <td><%= identifier.state %></td>
+            <td><%= identifier.issuer %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class='row'>
+    <h3 class='text-center'>Endpoints</h3>
+  </div>
+
+  <div class='table-responsive'>
+    <table class='table'>
+      <thead class='thead-dark'>
+        <tr>
+          <th scope='col'>Address_1</th>
+          <th scope='col'>Address_2</th>
+          <th scope='col'>Address Type</th>
+          <th scope='col'>city</th>
+          <th scope='col'>Country Code</th>
+          <th scope='col'>Country Name</th>
+          <th scope='col'>Postal Code</th>
+          <th scope='col'>State</th>
+          <th scope='col'>Affiliation</th>
+          <th scope='col'>Affiliation Name</th>
+          <th scope='col'>Content Other Description</th>
+          <th scope='col'>Content Type</th>
+          <th scope='col'>Content Type Description</th>
+          <th scope='col'>Endpoint</th>
+          <th scope='col'>Endpoint Type</th>
+          <th scope='col'>Endpoint Type Description</th>
+          <th scope='col'>Use</th>
+          <th scope='col'>Use Description</th>
+          <th scope='col'>Use Other Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @provider.endpoints.each do |endpoint| %>
+          <tr>
+            <td><%= endpoint.address_1 %></td>
+            <td><%= endpoint.address_2 %></td>
+            <td><%= endpoint.address_type %></td>
+            <td><%= endpoint.city %></td>
+            <td><%= endpoint.country_code %></td>
+            <td><%= endpoint.country_name %></td>
+            <td><%= endpoint.postal_code %></td>
+            <td><%= endpoint.state %></td>
+            <td><%= endpoint.affiliation %></td>
+            <td><%= endpoint.affiliationName %></td>
+            <td><%= endpoint.contentOtherDescription %></td>
+            <td><%= endpoint.contentType %></td>
+            <td><%= endpoint.contentTypeDescription %></td>
+            <td><%= endpoint.endpoint %></td>
+            <td><%= endpoint.endpointType %></td>
+            <td><%= endpoint.endpointTypeDescription %></td>
+            <td><%= endpoint.use %></td>
+            <td><%= endpoint.useDescription %></td>
+            <td><%= endpoint.useOtherDescription %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= link_to 'back', root_url, class: 'pull-right' %>
+</div>
+
